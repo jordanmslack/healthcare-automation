@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+      <h1 style="font-size: 48px; text-align: center; padding-bottom: 40px; ">How can we help you today?</h1>
+
+      <div class="flxc">
+          <div class="right-side" style="text-align: center;">
+              <h1>Find a Doctor</h1>
+              <p>We will help you find a professional near you, that accepts your insurance!</p>
+              <a href="{{ url_for('base.find_doctor') }}">
+                  <button type="submit" class="submit-btn">Start Looking!</button>
+              </a>
+          </div>
+
+          <div class="right-side" style="margin-left:40px; text-align: center;">
+              <h1>New Appointment</h1>
+              <p>If you already have a PCP we can help you schedule your next appointment.</p>
+              <a href="{{ url_for('base.schedule_appointment', doctor_id='None') }}">
+                <button type="submit" class="submit-btn">Get Started!</button>
+              </a>
+          </div>
+      </div>
+
+{% endblock content %}

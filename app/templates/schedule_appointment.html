@@ -1,0 +1,53 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <h1>Schedule Appointment</h1>
+    <p><a href="{{ url_for('base.home') }}">< Back</a></p>
+    <hr>
+
+    <form action="" method="POST" style="margin-top: 40px;">
+
+        {{ form.csrf_token }}
+        {{ form.doctor.label }}{{ form.doctor }}
+
+        <div id="find-doc" style="display: none;">
+            <p>Don't worry! We can help connect you with a doctor that accepts your insurance plan!</p>
+            <a href="{{ url_for('base.find_doctor') }}">
+                <button class="submit-btn" type="button">Find a Doctor!</button>
+            </a>
+        </div>
+
+        <div id="schedule-hide">
+
+            {{ form.date_time.label }}{{ form.date_time }}
+            {{ form.first_name.label }}{{ form.first_name }}
+            {{ form.last_name.label }}{{ form.last_name }}
+            {{ form.email.label }}{{ form.email }}
+
+            <button type="submit" class="submit-btn" style="margin-top: 20px;">Submit</button>
+        </div>
+
+    </form>
+
+    <script>
+
+        let scheduleHide = document.getElementById('schedule-hide')
+            redirect = document.getElementById('find-doc')
+            doctor = document.getElementById('doctor');
+
+        doctor.addEventListener('change', async() => {
+
+            let chosenType = doctor.options[doctor.selectedIndex].value;
+
+            if (chosenType === 'no-doctor') {
+                redirect.style.display = 'block';
+                scheduleHide.style.display = 'none';
+            } else {
+                redirect.style.display = 'none';
+                scheduleHide.style.display = 'block';
+            }
+        });
+
+    </script>
+{% endblock content %}

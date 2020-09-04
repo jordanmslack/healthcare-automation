@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <h1>Excellent! We were able to find {{ number }} doctor's that will accept your insurance.</h1>
+
+    <hr/>
+
+
+    {% for doctor in doctors %}
+
+        <div class="right-side flxsb" style="width: 100%; margin: 20px 0 20px 0;">
+            {{ doctor.full_name }}
+
+            <a href="{{ url_for('base.schedule_appointment', doctor_id=doctor.id) }}">
+                Schedule an appointment!
+            </a>
+
+        </div>
+    {% endfor %}
+
+{% endblock content %}

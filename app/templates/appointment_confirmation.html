@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <div class="flxc">
+        <div class="right-side" style="width: 100%; text-align: center;">
+
+            <h1>Congrats!</h1>
+            <h4>Your appointment has been scheduled with {{ appointment.doctor.full_name }} on {{ appointment.date.strftime('%A %B %m, %Y') }}.</h4>
+        </div>
+    </div>
+
+{% endblock content %}

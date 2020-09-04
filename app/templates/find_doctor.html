@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <h1>Find a Doctor</h1>
+    <p><a href="{{ url_for('base.home') }}">< Back</a></p>
+    <hr>
+
+    <form action="" method="POST" style="margin-top: 40px;">
+
+        {{ form.csrf_token }}
+        {{ form.insurance_plan.label }}{{ form.insurance_plan }}
+
+        <button type="submit" class="submit-btn" style="margin-top: 20px;">Submit</button>
+    </form>
+
+{% endblock content %}
